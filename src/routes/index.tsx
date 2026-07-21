@@ -1,7 +1,7 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { ArrowRight, TrendingUp, PieChart, Wallet, Sparkles } from "lucide-react";
+import { ArrowRight, TrendingUp, PieChart, Wallet, Sparkles, MessageCircle, Mail, MapPin } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   component: Landing,
@@ -30,6 +30,9 @@ function Landing() {
           <span className="text-lg font-bold tracking-tight">Budgetly</span>
         </div>
         <div className="flex items-center gap-2">
+          <a href="#contact" className="hidden rounded-full px-4 py-2 text-sm font-medium text-muted-foreground hover:bg-muted sm:inline-flex">
+            Contact
+          </a>
           {!checking && signedIn ? (
             <button
               onClick={() => navigate({ to: "/dashboard" })}
@@ -88,13 +91,13 @@ function Landing() {
                 <p className="text-sm font-medium text-muted-foreground">This month</p>
                 <span className="rounded-full bg-success/15 px-2 py-0.5 text-xs font-semibold text-success">+12%</span>
               </div>
-              <p className="mt-2 text-4xl font-extrabold tracking-tight">$2,847.20</p>
+              <p className="mt-2 text-4xl font-extrabold tracking-tight">R 42,708.20</p>
               <p className="text-sm text-muted-foreground">Remaining balance</p>
               <div className="mt-6 space-y-3">
                 {[
-                  { label: "Groceries", amount: "-$84.20", tint: "bg-primary/10 text-primary" },
-                  { label: "Salary", amount: "+$3,200.00", tint: "bg-success/15 text-success" },
-                  { label: "Coffee", amount: "-$4.75", tint: "bg-accent/25 text-accent-foreground" },
+                  { label: "Groceries", amount: "−R 1,263.00", tint: "bg-primary/10 text-primary" },
+                  { label: "Salary", amount: "+R 48,000.00", tint: "bg-success/15 text-success" },
+                  { label: "Coffee", amount: "−R 42.50", tint: "bg-accent/25 text-accent-foreground" },
                 ].map((r) => (
                   <div key={r.label} className="flex items-center justify-between rounded-xl bg-muted/60 px-4 py-3">
                     <div className="flex items-center gap-3">
@@ -131,9 +134,77 @@ function Landing() {
         </div>
       </section>
 
+      {/* Contact / Support */}
+      <section id="contact" className="mx-auto max-w-6xl px-6 pb-16">
+        <div className="rounded-3xl border bg-card p-8 shadow-[var(--shadow-soft)] md:p-10">
+          <div className="grid gap-8 md:grid-cols-[1.1fr_1fr] md:items-center">
+            <div>
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+                Need help?
+              </span>
+              <h2 className="mt-3 text-3xl font-extrabold tracking-tight md:text-4xl">
+                We're here for you.
+              </h2>
+              <p className="mt-3 text-muted-foreground">
+                Running into a problem or have a question about your budget? Reach out to our team
+                and we'll get back to you as soon as possible.
+              </p>
+              <p className="mt-4 text-sm text-muted-foreground">
+                <span className="font-semibold text-foreground">CEO:</span> Thandokuhle Mdluli
+              </p>
+            </div>
+
+            <div className="space-y-3">
+              <a
+                href="https://wa.me/27663725168"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-4 rounded-2xl border bg-background px-4 py-3 transition hover:border-primary hover:bg-muted/50"
+              >
+                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-success/15 text-success">
+                  <MessageCircle className="h-5 w-5" />
+                </span>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">WhatsApp</p>
+                  <p className="font-semibold">066 372 5168</p>
+                </div>
+              </a>
+
+              <a
+                href="mailto:thandokuhle.mdluli29s@gmail.com"
+                className="flex items-center gap-4 rounded-2xl border bg-background px-4 py-3 transition hover:border-primary hover:bg-muted/50"
+              >
+                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                  <Mail className="h-5 w-5" />
+                </span>
+                <div className="min-w-0">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Email</p>
+                  <p className="truncate font-semibold">thandokuhle.mdluli29s@gmail.com</p>
+                </div>
+              </a>
+
+              <div className="flex items-start gap-4 rounded-2xl border bg-background px-4 py-3">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent/25 text-accent-foreground">
+                  <MapPin className="h-5 w-5" />
+                </span>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Branch</p>
+                  <p className="font-semibold leading-snug">
+                    Marikana Ext 3, Building T0859<br />
+                    Kwa-Thema, Springs<br />
+                    Johannesburg, Gauteng
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <footer className="border-t">
-        <div className="mx-auto max-w-6xl px-6 py-6 text-sm text-muted-foreground">
-          © {new Date().getFullYear()} Budgetly — Smart Budget Tracker.
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-2 px-6 py-6 text-sm text-muted-foreground">
+          <span>© {new Date().getFullYear()} Budgetly — Smart Budget Tracker.</span>
+          <span>Kwa-Thema, Springs • Gauteng, South Africa</span>
         </div>
       </footer>
     </div>

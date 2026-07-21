@@ -24,7 +24,7 @@ const EXPENSE_CATEGORIES = ["Groceries", "Food & Drink", "Transport", "Housing",
 const INCOME_CATEGORIES = ["Salary", "Freelance", "Gift", "Investment", "Other"];
 
 function fmt(n: number) {
-  return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(n);
+  return new Intl.NumberFormat("en-ZA", { style: "currency", currency: "ZAR" }).format(n);
 }
 
 function Dashboard() {
@@ -263,7 +263,7 @@ function Dashboard() {
               <div>
                 <label className="text-xs font-semibold text-muted-foreground">Amount</label>
                 <div className="relative mt-1">
-                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-lg font-bold text-muted-foreground">$</span>
+                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-lg font-bold text-muted-foreground">R</span>
                   <input
                     type="number"
                     step="0.01"
