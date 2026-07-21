@@ -263,7 +263,7 @@ function Dashboard() {
               <div>
                 <label className="text-xs font-semibold text-muted-foreground">Amount</label>
                 <div className="relative mt-1">
-                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-lg font-bold text-muted-foreground">$</span>
+                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-lg font-bold text-muted-foreground">R</span>
                   <input
                     type="number"
                     step="0.01"
