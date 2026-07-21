@@ -1,9 +1,17 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { ChatBot } from "@/components/ChatBot";
 import { useEffect, useMemo, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import {
-  Wallet, LogOut, Plus, TrendingUp, TrendingDown, Trash2, Loader2, Search,
+  Wallet,
+  LogOut,
+  Plus,
+  TrendingUp,
+  TrendingDown,
+  Trash2,
+  Loader2,
+  Search,
 } from "lucide-react";
 
 export const Route = createFileRoute("/_authenticated/dashboard")({
@@ -20,7 +28,17 @@ type Tx = {
   created_at: string;
 };
 
-const EXPENSE_CATEGORIES = ["Groceries", "Food & Drink", "Transport", "Housing", "Bills", "Shopping", "Health", "Entertainment", "Other"];
+const EXPENSE_CATEGORIES = [
+  "Groceries",
+  "Food & Drink",
+  "Transport",
+  "Housing",
+  "Bills",
+  "Shopping",
+  "Health",
+  "Entertainment",
+  "Other",
+];
 const INCOME_CATEGORIES = ["Salary", "Freelance", "Gift", "Investment", "Other"];
 
 function fmt(n: number) {
@@ -71,7 +89,8 @@ function Dashboard() {
   const totals = useMemo(() => {
     const now = new Date();
     const monthStart = new Date(now.getFullYear(), now.getMonth(), 1).toISOString().slice(0, 10);
-    let income = 0, expense = 0;
+    let income = 0,
+      expense = 0;
     for (const t of txs) {
       if (t.occurred_on < monthStart) continue;
       if (t.type === "income") income += t.amount;
@@ -107,7 +126,8 @@ function Dashboard() {
     if (error) return toast.error(error.message);
     toast.success("Added");
     setOpen(false);
-    setAmount(""); setNote("");
+    setAmount("");
+    setNote("");
     load();
   };
 
@@ -115,7 +135,10 @@ function Dashboard() {
     const prev = txs;
     setTxs((t) => t.filter((x) => x.id !== id));
     const { error } = await supabase.from("transactions").delete().eq("id", id);
-    if (error) { toast.error(error.message); setTxs(prev); }
+    if (error) {
+      toast.error(error.message);
+      setTxs(prev);
+    }
   };
 
   const signOut = async () => {
@@ -137,7 +160,10 @@ function Dashboard() {
               <p className="text-xs text-muted-foreground">{userEmail}</p>
             </div>
           </div>
-          <button onClick={signOut} className="inline-flex items-center gap-1.5 rounded-full border border-input px-3 py-1.5 text-sm hover:bg-muted">
+          <button
+            onClick={signOut}
+            className="inline-flex items-center gap-1.5 rounded-full border border-input px-3 py-1.5 text-sm hover:bg-muted"
+          >
             <LogOut className="h-4 w-4" /> Sign out
           </button>
         </div>
@@ -148,7 +174,9 @@ function Dashboard() {
         <section className="grid gap-4 md:grid-cols-3">
           <div className="rounded-2xl border bg-card p-5 shadow-[var(--shadow-soft)] md:col-span-3">
             <p className="text-sm font-medium text-muted-foreground">Balance this month</p>
-            <p className={`mt-1 text-4xl font-extrabold tracking-tight ${totals.balance >= 0 ? "text-foreground" : "text-destructive"}`}>
+            <p
+              className={`mt-1 text-4xl font-extrabold tracking-tight ${totals.balance >= 0 ? "text-foreground" : "text-destructive"}`}
+            >
               {fmt(totals.balance)}
             </p>
             <div className="mt-4 grid grid-cols-2 gap-4">
@@ -199,7 +227,9 @@ function Dashboard() {
           ) : filtered.length === 0 ? (
             <div className="rounded-2xl border border-dashed bg-card p-12 text-center">
               <p className="text-lg font-semibold">No transactions yet</p>
-              <p className="mt-1 text-sm text-muted-foreground">Add your first income or expense to get started.</p>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Add your first income or expense to get started.
+              </p>
               <button
                 onClick={() => setOpen(true)}
                 className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground"
@@ -209,10 +239,19 @@ function Dashboard() {
             </div>
           ) : (
             filtered.map((t) => (
-              <div key={t.id} className="group flex items-center justify-between rounded-2xl border bg-card px-4 py-3 shadow-[var(--shadow-soft)]">
+              <div
+                key={t.id}
+                className="group flex items-center justify-between rounded-2xl border bg-card px-4 py-3 shadow-[var(--shadow-soft)]"
+              >
                 <div className="flex min-w-0 items-center gap-3">
-                  <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full ${t.type === "income" ? "bg-success/15 text-success" : "bg-primary/10 text-primary"}`}>
-                    {t.type === "income" ? <TrendingUp className="h-5 w-5" /> : <TrendingDown className="h-5 w-5" />}
+                  <div
+                    className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full ${t.type === "income" ? "bg-success/15 text-success" : "bg-primary/10 text-primary"}`}
+                  >
+                    {t.type === "income" ? (
+                      <TrendingUp className="h-5 w-5" />
+                    ) : (
+                      <TrendingDown className="h-5 w-5" />
+                    )}
                   </div>
                   <div className="min-w-0">
                     <p className="truncate font-semibold">{t.category}</p>
@@ -222,8 +261,11 @@ function Dashboard() {
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className={`text-sm font-bold ${t.type === "income" ? "text-success" : "text-foreground"}`}>
-                    {t.type === "income" ? "+" : "−"}{fmt(t.amount)}
+                  <span
+                    className={`text-sm font-bold ${t.type === "income" ? "text-success" : "text-foreground"}`}
+                  >
+                    {t.type === "income" ? "+" : "−"}
+                    {fmt(t.amount)}
                   </span>
                   <button
                     onClick={() => onDelete(t.id)}
@@ -241,8 +283,14 @@ function Dashboard() {
 
       {/* Modal */}
       {open && (
-        <div className="fixed inset-0 z-50 flex items-end justify-center bg-foreground/40 p-0 sm:items-center sm:p-4" onClick={() => setOpen(false)}>
-          <div className="w-full max-w-md rounded-t-3xl bg-card p-6 shadow-xl sm:rounded-3xl" onClick={(e) => e.stopPropagation()}>
+        <div
+          className="fixed inset-0 z-50 flex items-end justify-center bg-foreground/40 p-0 sm:items-center sm:p-4"
+          onClick={() => setOpen(false)}
+        >
+          <div
+            className="w-full max-w-md rounded-t-3xl bg-card p-6 shadow-xl sm:rounded-3xl"
+            onClick={(e) => e.stopPropagation()}
+          >
             <h2 className="text-xl font-extrabold">Add transaction</h2>
             <form onSubmit={onAdd} className="mt-5 space-y-4">
               <div className="grid grid-cols-2 gap-2 rounded-full bg-muted p-1">
@@ -263,7 +311,9 @@ function Dashboard() {
               <div>
                 <label className="text-xs font-semibold text-muted-foreground">Amount</label>
                 <div className="relative mt-1">
-                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-lg font-bold text-muted-foreground">R</span>
+                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-lg font-bold text-muted-foreground">
+                    R
+                  </span>
                   <input
                     type="number"
                     step="0.01"
@@ -301,7 +351,9 @@ function Dashboard() {
                   />
                 </div>
                 <div>
-                  <label className="text-xs font-semibold text-muted-foreground">Note (optional)</label>
+                  <label className="text-xs font-semibold text-muted-foreground">
+                    Note (optional)
+                  </label>
                   <input
                     type="text"
                     value={note}
@@ -333,6 +385,8 @@ function Dashboard() {
           </div>
         </div>
       )}
+      {/* AI Chatbot */}
+      <ChatBot />
     </div>
   );
 }
