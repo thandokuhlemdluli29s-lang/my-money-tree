@@ -1,5 +1,5 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-// import { ChatBot } from "@/components/ChatBot";
+import { ChatBot } from "@/components/ChatBot";
 import { useEffect, useMemo, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
@@ -394,6 +394,7 @@ function Dashboard() {
           </div>
         </div>
       )}
+      <ChatBot />
     </div>
   );
 }
