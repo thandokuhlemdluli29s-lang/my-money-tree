@@ -131,9 +131,77 @@ function Landing() {
         </div>
       </section>
 
+      {/* Contact / Support */}
+      <section id="contact" className="mx-auto max-w-6xl px-6 pb-16">
+        <div className="rounded-3xl border bg-card p-8 shadow-[var(--shadow-soft)] md:p-10">
+          <div className="grid gap-8 md:grid-cols-[1.1fr_1fr] md:items-center">
+            <div>
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+                Need help?
+              </span>
+              <h2 className="mt-3 text-3xl font-extrabold tracking-tight md:text-4xl">
+                We're here for you.
+              </h2>
+              <p className="mt-3 text-muted-foreground">
+                Running into a problem or have a question about your budget? Reach out to our team
+                and we'll get back to you as soon as possible.
+              </p>
+              <p className="mt-4 text-sm text-muted-foreground">
+                <span className="font-semibold text-foreground">CEO:</span> Thandokuhle Mdluli
+              </p>
+            </div>
+
+            <div className="space-y-3">
+              <a
+                href="https://wa.me/27663725168"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-4 rounded-2xl border bg-background px-4 py-3 transition hover:border-primary hover:bg-muted/50"
+              >
+                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-success/15 text-success">
+                  <MessageCircle className="h-5 w-5" />
+                </span>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">WhatsApp</p>
+                  <p className="font-semibold">066 372 5168</p>
+                </div>
+              </a>
+
+              <a
+                href="mailto:thandokuhle.mdluli29s@gmail.com"
+                className="flex items-center gap-4 rounded-2xl border bg-background px-4 py-3 transition hover:border-primary hover:bg-muted/50"
+              >
+                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                  <Mail className="h-5 w-5" />
+                </span>
+                <div className="min-w-0">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Email</p>
+                  <p className="truncate font-semibold">thandokuhle.mdluli29s@gmail.com</p>
+                </div>
+              </a>
+
+              <div className="flex items-start gap-4 rounded-2xl border bg-background px-4 py-3">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent/25 text-accent-foreground">
+                  <MapPin className="h-5 w-5" />
+                </span>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Branch</p>
+                  <p className="font-semibold leading-snug">
+                    Marikana Ext 3, Building T0859<br />
+                    Kwa-Thema, Springs<br />
+                    Johannesburg, Gauteng
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <footer className="border-t">
-        <div className="mx-auto max-w-6xl px-6 py-6 text-sm text-muted-foreground">
-          © {new Date().getFullYear()} Budgetly — Smart Budget Tracker.
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-2 px-6 py-6 text-sm text-muted-foreground">
+          <span>© {new Date().getFullYear()} Budgetly — Smart Budget Tracker.</span>
+          <span>Kwa-Thema, Springs • Gauteng, South Africa</span>
         </div>
       </footer>
     </div>
