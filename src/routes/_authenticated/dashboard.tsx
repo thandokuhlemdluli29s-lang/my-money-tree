@@ -1,5 +1,5 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { ChatBot } from "@/components/ChatBot";
+// import { ChatBot } from "@/components/ChatBot";
 import { useEffect, useMemo, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
@@ -12,6 +12,7 @@ import {
   Trash2,
   Loader2,
   Search,
+  Bot,
 } from "lucide-react";
 
 export const Route = createFileRoute("/_authenticated/dashboard")({
@@ -160,12 +161,20 @@ function Dashboard() {
               <p className="text-xs text-muted-foreground">{userEmail}</p>
             </div>
           </div>
-          <button
-            onClick={signOut}
-            className="inline-flex items-center gap-1.5 rounded-full border border-input px-3 py-1.5 text-sm hover:bg-muted"
-          >
-            <LogOut className="h-4 w-4" /> Sign out
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => window.dispatchEvent(new CustomEvent("open-budgetly-bot"))}
+              className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1.5 text-sm font-semibold text-primary hover:bg-primary/20"
+            >
+              <Bot className="h-4 w-4" /> Chat
+            </button>
+            <button
+              onClick={signOut}
+              className="inline-flex items-center gap-1.5 rounded-full border border-input px-3 py-1.5 text-sm hover:bg-muted"
+            >
+              <LogOut className="h-4 w-4" /> Sign out
+            </button>
+          </div>
         </div>
       </header>
 
@@ -385,8 +394,6 @@ function Dashboard() {
           </div>
         </div>
       )}
-      {/* AI Chatbot */}
-      <ChatBot />
     </div>
   );
 }

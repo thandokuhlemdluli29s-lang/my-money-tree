@@ -27,6 +27,12 @@ export function ChatBot() {
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
+    const handleOpenChat = () => setOpen(true);
+    window.addEventListener("open-budgetly-bot", handleOpenChat);
+    return () => window.removeEventListener("open-budgetly-bot", handleOpenChat);
+  }, []);
+
+  useEffect(() => {
     if (open) {
       setTimeout(() => inputRef.current?.focus(), 100);
     }
