@@ -24,7 +24,7 @@ const EXPENSE_CATEGORIES = ["Groceries", "Food & Drink", "Transport", "Housing",
 const INCOME_CATEGORIES = ["Salary", "Freelance", "Gift", "Investment", "Other"];
 
 function fmt(n: number) {
-  return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(n);
+  return new Intl.NumberFormat("en-ZA", { style: "currency", currency: "ZAR" }).format(n);
 }
 
 function Dashboard() {
