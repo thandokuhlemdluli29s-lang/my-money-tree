@@ -88,13 +88,13 @@ function Landing() {
                 <p className="text-sm font-medium text-muted-foreground">This month</p>
                 <span className="rounded-full bg-success/15 px-2 py-0.5 text-xs font-semibold text-success">+12%</span>
               </div>
-              <p className="mt-2 text-4xl font-extrabold tracking-tight">$2,847.20</p>
+              <p className="mt-2 text-4xl font-extrabold tracking-tight">R 42,708.20</p>
               <p className="text-sm text-muted-foreground">Remaining balance</p>
               <div className="mt-6 space-y-3">
                 {[
-                  { label: "Groceries", amount: "-$84.20", tint: "bg-primary/10 text-primary" },
-                  { label: "Salary", amount: "+$3,200.00", tint: "bg-success/15 text-success" },
-                  { label: "Coffee", amount: "-$4.75", tint: "bg-accent/25 text-accent-foreground" },
+                  { label: "Groceries", amount: "−R 1,263.00", tint: "bg-primary/10 text-primary" },
+                  { label: "Salary", amount: "+R 48,000.00", tint: "bg-success/15 text-success" },
+                  { label: "Coffee", amount: "−R 42.50", tint: "bg-accent/25 text-accent-foreground" },
                 ].map((r) => (
                   <div key={r.label} className="flex items-center justify-between rounded-xl bg-muted/60 px-4 py-3">
                     <div className="flex items-center gap-3">
