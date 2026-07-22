@@ -138,23 +138,23 @@ function Landing() {
       {/* Contact / Support */}
       <section id="contact" className="mx-auto max-w-6xl px-6 pb-16">
         <div className="rounded-3xl border bg-card p-8 shadow-[var(--shadow-soft)] md:p-10">
-          <div className="grid gap-8 md:grid-cols-[1.1fr_1fr] md:items-center">
-            <div>
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
-                Need help?
-              </span>
-              <h2 className="mt-3 text-3xl font-extrabold tracking-tight md:text-4xl">
-                We're here for you.
-              </h2>
-              <p className="mt-3 text-muted-foreground">
-                Running into a problem or have a question about your budget? Reach out to our team
-                and we'll get back to you as soon as possible.
-              </p>
-              <p className="mt-4 text-sm text-muted-foreground">
-                <span className="font-semibold text-foreground">CEO:</span> Thandokuhle Mdluli
-              </p>
-            </div>
+          <div className="mb-8 max-w-2xl">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+              Need help?
+            </span>
+            <h2 className="mt-3 text-3xl font-extrabold tracking-tight md:text-4xl">
+              We're here for you.
+            </h2>
+            <p className="mt-3 text-muted-foreground">
+              Chat with our virtual assistant anytime — no sign in required. For anything urgent,
+              reach the team directly using the details below.
+            </p>
+            <p className="mt-4 text-sm text-muted-foreground">
+              <span className="font-semibold text-foreground">CEO:</span> Thandokuhle Mdluli
+            </p>
+          </div>
 
+          <div className="grid gap-6 md:grid-cols-2 md:items-start">
             <div className="space-y-3">
               <a
                 href="https://wa.me/27663725168"
@@ -198,6 +198,8 @@ function Landing() {
                 </div>
               </div>
             </div>
+
+            <SupportChatBot />
           </div>
         </div>
       </section>
