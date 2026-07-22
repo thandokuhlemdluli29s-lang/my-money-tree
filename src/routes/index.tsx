@@ -210,7 +210,6 @@ function Landing() {
           <span>Kwa-Thema, Springs • Gauteng, South Africa</span>
         </div>
       </footer>
-      <SupportChatBot />
     </div>
   );
 }
