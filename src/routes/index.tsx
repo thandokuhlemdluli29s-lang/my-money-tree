@@ -2,6 +2,7 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { ArrowRight, TrendingUp, PieChart, Wallet, Sparkles, MessageCircle, Mail, MapPin } from "lucide-react";
+import { SupportChatBot } from "@/components/SupportChatBot";
 
 export const Route = createFileRoute("/")({
   component: Landing,
