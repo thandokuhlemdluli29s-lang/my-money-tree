@@ -1,29 +1,52 @@
-# Welcome to your Lovable project
+# Budgetly — Smart Budget Tracker
 
-This project was built with [Lovable](https://lovable.dev).
+A classy, noir-and-gold personal finance app to track income, expenses, and savings in South African Rand (ZAR).
 
-## Build with Lovable
+🌐 **Live site:** [smart-money-budget-tracker.lovable.app](https://smart-money-budget-tracker.lovable.app)
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+![Budgetly preview](docs/preview.png)
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+## Project Brief
+
+The Smart Budget Tracker helps users take control of their personal finances by making it effortless to log income and expenses, set monthly budgets, visualize spending, and work toward savings goals.
+
+### Objectives
+- Record daily income and expenses in seconds
+- Create and monitor monthly budgets
+- View spending summaries and category breakdowns
+- Track progress toward savings goals
+
+### Core Features
+- 🔐 Email/password and Google sign-in
+- 💸 Income & expense tracking with categories (in ZAR)
+- 📊 Monthly balance, income, and expense summaries
+- 🔍 Transaction search and filtering
+- 💬 Built-in support chatbot (no sign-in required) for off-hours help
+
+### Tech Stack
+- **Frontend:** React 19 + TanStack Start + Vite 7
+- **Styling:** Tailwind CSS v4 (custom Noir & Gold theme, DM Serif Display + Fira Sans)
+- **Backend:** Lovable Cloud (auth, database, server functions)
+- **AI:** Lovable AI Gateway (support chatbot)
+
+## Project Phases
+1. **Planning** — scope, features, resources
+2. **Design** — Noir & Gold visual system
+3. **Development** — auth, dashboard, chatbot
+4. **Testing** — flows and RLS validation
+5. **Deployment** — published on Lovable
+
+## Support
+- **CEO:** Thandokuhle Mdluli
+- **WhatsApp:** 066 372 5168
+- **Email:** thandokuhle.mdluli29s@gmail.com
+- **Branch:** Marikana Ext 3, Building T0859, Kwa-Thema, Springs, Johannesburg, Gauteng
 
 ## Development
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
 npm i
 npm run dev
 ```
 
-## Built with
-
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
+Built with [Lovable](https://lovable.dev).
